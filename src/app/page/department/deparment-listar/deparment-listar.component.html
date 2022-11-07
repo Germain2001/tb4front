@@ -1,0 +1,44 @@
+<div class="container">
+  <div style=" text-align: center;">
+    <h1>Lista de Departamentos</h1>
+  </div>
+
+  <mat-form-field mat-dialog-title = "buscar">
+    <input matInput (keyup)="filtrar($event)" placeholder="Buscar">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> id </th>
+    <td mat-cell *matCellDef="let element"> {{element.idDepartment}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.ndepartment}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
+            [routerLink]="['modificar', element.idDepartment]">Actualizar</button>
+        <button mat-raised-button color="accent" (click)="confirmar(element.idDepartment)">Eliminar</button>
+    </td>
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<div class="example-button-container">
+
+  <button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon"
+    routerLink="/department/new">
+    <mat-icon>plus_one</mat-icon>
+  </button>
+</div>

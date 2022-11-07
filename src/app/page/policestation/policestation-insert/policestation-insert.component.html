@@ -1,0 +1,37 @@
+<div class="container">
+<h1>Comisaria</h1>
+
+<mat-form-field class="example-full-width">
+  <mat-label>Id</mat-label>
+  <input matInput placeholder="id" [(ngModel)]="policestation.idPoliceStation">
+</mat-form-field>
+
+
+<br>
+
+<mat-form-field class="example-full-width">
+  <mat-label>Nombre</mat-label>
+  <input matInput required placeholder="name" [(ngModel)]="policestation.npoliceStation">
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="example-full-width">
+  <mat-label>Telefono</mat-label>
+  <input matInput required placeholder="phone" [(ngModel)]="policestation.tcell">
+</mat-form-field>
+<br>
+
+<mat-form-field appearance="fill">
+  <mat-label>Seleccione Direccion</mat-label>
+  <mat-select [(value)]="idAddressSeleccionado" required>
+    <mat-option *ngFor="let p of listaAddress" [value]="p.idDirection">
+      {{p.nurbanizacion}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+<button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+<button mat-raised-button color="warn" routerLink="/policestation">Cancelar</button>
+<p>{{mensaje}}</p>

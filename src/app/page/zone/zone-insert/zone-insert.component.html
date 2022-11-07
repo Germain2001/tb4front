@@ -1,0 +1,32 @@
+
+  <div class="container">
+    <h1>Zona</h1>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="id" [(ngModel)]="zone.idZone">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Zona</mat-label>
+      <input matInput required placeholder="name" [(ngModel)]="zone.nzone">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Bandera</mat-label>
+      <input matInput required placeholder="peligro" [(ngModel)]="zone.cflag">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Longitud</mat-label>
+      <input matInput required placeholder="longitud" [(ngModel)]="zone.clength">
+    </mat-form-field>
+
+
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/zone">Cancelar</button>
+    <p>{{mensaje}}</p>
+  </div>

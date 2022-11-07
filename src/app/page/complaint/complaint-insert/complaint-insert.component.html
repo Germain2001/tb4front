@@ -1,0 +1,41 @@
+<div class="container">
+
+    <h1>Complaint</h1>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="id" [(ngModel)]="complaint.idComplaint">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput required placeholder="complaint" [(ngModel)]="complaint.ncomplaint">
+    </mat-form-field>
+<br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Seleccione Comisaria</mat-label>
+      <mat-select [(value)]="idPoliceStationSeleccionado" required>
+          <mat-option *ngFor="let p of listaPolicestation" [value]="p.idPoliceStation">
+              {{p.npoliceStation}}
+          </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Seleccione zona</mat-label>
+    <mat-select [(value)]="idZoneSeleccionado" required>
+        <mat-option *ngFor="let p of listaZone" [value]="p.idZone">
+            {{p.nzone}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/complaint">Cancelar</button>
+    <p>{{mensaje}}</p>
+
+  </div>

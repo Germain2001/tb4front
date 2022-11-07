@@ -1,0 +1,48 @@
+<div class="container">
+  <div style=" text-align: center;">
+    <h1>Lista de Distrito</h1>
+  </div>
+  <mat-form-field mat-dialog-title="buscar">
+    <input matInput (keyup)="filtrar($event)" placeholder="Buscar">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let element"> {{element.idDistric}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="district">
+      <th mat-header-cell *matHeaderCellDef> Distrito </th>
+      <td mat-cell *matCellDef="let element"> {{element.ndistrict}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="province">
+      <th mat-header-cell *matHeaderCellDef> provincia </th>
+      <td mat-cell *matCellDef="let element"> {{element.province.nprovince}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
+          [routerLink]="['modificar', element.idDistric]">Actualizar</button>
+        <button mat-raised-button color="accent" (click)="confirmar(element.idDistric)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div class="example-button-container">
+
+    <button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon"
+      routerLink="/district/new">
+      <mat-icon>plus_one</mat-icon>
+    </button>
+  </div>

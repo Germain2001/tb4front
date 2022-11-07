@@ -1,0 +1,55 @@
+
+  <div class="container">
+    <h1>Direccion</h1>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="id" [(ngModel)]="direction.idDirection">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Urbanizacion</mat-label>
+      <input matInput required placeholder="urbanizacion" [(ngModel)]="direction.nurbanizacion">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Calle</mat-label>
+      <input matInput required placeholder="calle" [(ngModel)]="direction.ncalle">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>N° Departamento</mat-label>
+      <input matInput required placeholder="departamento" [(ngModel)]="direction.ndepartamento">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Lote</mat-label>
+      <input matInput required placeholder="lote" [(ngModel)]="direction.nlote">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Manzana</mat-label>
+      <input matInput required placeholder="manzana" [(ngModel)]="direction.nmanzana">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Seleccione Distrito</mat-label>
+      <mat-select [(value)]="idDistrictSeleccionado" required>
+          <mat-option *ngFor="let p of listaDistrict" [value]="p.idDistric">
+              {{p.ndistrict}}
+          </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/direction">Cancelar</button>
+    <p>{{mensaje}}</p>
+  </div>
